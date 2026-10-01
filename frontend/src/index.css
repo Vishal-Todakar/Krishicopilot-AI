@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #f1fcf3;
+    color: #141e18;
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Custom Tactical & Farm UI Utilities */
+.shadow-tactile {
+  box-shadow: 0 2px 0 0 #d1ddd4;
+}
+
+.shadow-tactile-lg {
+  box-shadow: 0 3px 0 0 #c0c9bb;
+}
+
+.shadow-tactile-btn {
+  box-shadow: 0 3px 0 0 #0c5216;
+}
+
+.shadow-tactile-lime {
+  box-shadow: 0 2px 0 0 #2e4f00;
+}
+
+.shadow-tactile-amber {
+  box-shadow: 0 2px 0 0 #7e4200;
+}
+
+/* Scan laser animation */
+@keyframes laser-sweep {
+  0% { top: 22%; opacity: 0.8; }
+  50% { top: 76%; opacity: 1; }
+  100% { top: 22%; opacity: 0.8; }
+}
+
+.animate-laser {
+  animation: laser-sweep 2.2s ease-in-out infinite;
+}
+
+/* Pulse glow for live indicator */
+@keyframes soft-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.15); }
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Hide scrollbar for clean horizontal pill filters */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

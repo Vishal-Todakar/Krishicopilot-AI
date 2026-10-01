@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: krishicopilot-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: krishi_user
+      POSTGRES_PASSWORD: krishi_password
+      POSTGRES_DB: krishicopilot_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: krishicopilot-backend
+    restart: always
+    environment:
+      - DATABASE_URL=postgresql://krishi_user:krishi_password@postgres:5432/krishicopilot_db
+      - JWT_SECRET=krishi_secret_super_key_2026_agtech_prod
+      - DEMO_MODE=true
+      - DISEASE_MODEL_MODE=mock
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: krishicopilot-frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
