@@ -91,25 +91,27 @@ class FarmResponse(BaseModel):
 
 # --- Disease Prediction Schemas ---
 class DiseasePredictionResponse(BaseModel):
-    crop: str
-    disease: str
-    disease_scientific: Optional[str] = None
-    disease_marathi: Optional[str] = None
-    disease_hindi: Optional[str] = None
-    confidence: float
-    confidence_tier: str # "HIGH", "MODERATE", "LOW"
-    severity: str        # "LOW", "MODERATE", "HIGH"
-    symptoms: List[str]
-    general_guidance: str
-    action_plan: List[str]
-    organic_options: List[Dict[str, str]]
-    chemical_options: List[Dict[str, str]]
-    disclaimer: str
-    heatmap_data: Optional[Dict[str, Any]] = None
-    bounding_box: Optional[Dict[str, Any]] = None
-    is_low_confidence: bool = False
-    warning: Optional[str] = None
-    audio_advice_text: Optional[str] = None
+    crop:               str
+    disease:            str
+    disease_scientific: Optional[str]            = None
+    disease_marathi:    Optional[str]            = None
+    disease_hindi:      Optional[str]            = None
+    confidence:         float
+    confidence_tier:    str                      # "HIGH", "MODERATE", "LOW"
+    severity:           str                      # "LOW", "MODERATE", "HIGH"
+    symptoms:           List[str]
+    general_guidance:   str
+    action_plan:        List[str]
+    organic_options:    List[Dict[str, str]]
+    chemical_options:   List[Dict[str, str]]
+    disclaimer:         str
+    heatmap_data:       Optional[Dict[str, Any]] = None
+    bounding_box:       Optional[Dict[str, Any]] = None
+    is_low_confidence:  bool                     = False
+    warning:            Optional[str]            = None
+    audio_advice_text:  Optional[str]            = None
+    audio_advice_hi:    Optional[str]            = None
+    audio_advice_mr:    Optional[str]            = None
 
 # --- Weather Schemas ---
 class WeatherTelemetry(BaseModel):

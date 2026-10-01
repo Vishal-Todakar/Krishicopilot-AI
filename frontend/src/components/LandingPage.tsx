@@ -23,9 +23,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
       {/* 1. Hero Section */}
       <section className="relative overflow-hidden rounded-3xl bg-gradient-to-b from-surface-container-low via-surface to-surface-container p-6 sm:p-12 shadow-tactile border border-outline-variant/40 flex flex-col items-center text-center gap-6">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-headline text-xs font-bold uppercase tracking-wider shadow-sm">
-          <span>🌾 Hackathon Edition</span>
-          <span>•</span>
-          <span>100% Software-Only AI Farm Assistant</span>
+          <span>🌾 100% Software-Only AI Farm Assistant</span>
         </div>
 
         <h1 className="font-headline font-bold text-3xl sm:text-5xl text-primary max-w-3xl leading-tight tracking-tight">
@@ -321,55 +319,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
         </div>
       </section>
 
-      {/* 4. Hackathon Presentation Mode Walkthrough */}
-      <section className="p-6 sm:p-8 rounded-3xl bg-primary-container text-on-primary shadow-xl flex flex-col gap-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-[24px] text-secondary-fixed">
-              speed
-            </span>
-            <h3 className="font-headline font-bold text-lg text-white">
-              3-Minute Hackathon Demo Flow
-            </h3>
-          </div>
-          <span className="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container text-xs font-headline font-bold">
-            Live Ready
-          </span>
-        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs leading-relaxed text-on-primary-container">
-          <div className="p-3 rounded-xl bg-black/20 border border-white/10 flex items-start gap-2">
-            <span className="font-bold text-secondary-fixed">1.</span>
-            <span><strong>Farmer Profile:</strong> Sign up or configure your real farm profile with crop, stage, soil type, and live weather sync.</span>
-          </div>
-          <div className="p-3 rounded-xl bg-black/20 border border-white/10 flex items-start gap-2">
-            <span className="font-bold text-secondary-fixed">2.</span>
-            <span><strong>Crop Scanner:</strong> Scan diseased leaf; AI highlights Early Blight lesion with 94% confidence and Grad-CAM layer.</span>
-          </div>
-          <div className="p-3 rounded-xl bg-black/20 border border-white/10 flex items-start gap-2">
-            <span className="font-bold text-secondary-fixed">3.</span>
-            <span><strong>Risk & Irrigation:</strong> Multi-factor engine combines 78% rain chance + fungal history to recommend <em>AVOID / DELAY</em> irrigation.</span>
-          </div>
-          <div className="p-3 rounded-xl bg-black/20 border border-white/10 flex items-start gap-2">
-            <span className="font-bold text-secondary-fixed">4.</span>
-            <span><strong>Marathi/Hindi Voice:</strong> Ask AI in Marathi: <em>"माझ्या टोमॅटोच्या पानांवर काळे डाग आहेत, काय करावे?"</em> and listen to audio advice.</span>
-          </div>
-        </div>
-
-        <div className="mt-2 flex flex-col sm:flex-row items-center justify-between gap-3 pt-3 border-t border-white/15">
-          <span className="text-xs text-white/90">
-            {isAuthenticated ? 'Ready to explore telemetry and diagnosis?' : 'Ready to start? Sign in or explore demo.'}
-          </span>
-          <button
-            type="button"
-            onClick={onGetStarted}
-            className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-white text-primary font-headline font-bold text-xs shadow-md active:translate-y-0.5 transition-all flex items-center justify-center gap-1.5"
-          >
-            <span>{isAuthenticated ? (language === 'mr' ? 'थेट डॅशबोर्ड उघडा' : language === 'hi' ? 'लाइव डैशबोर्ड खोलें' : 'Open Live Dashboard') : t.getStarted}</span>
-            <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-          </button>
-        </div>
-      </section>
     </div>
   );
 };
